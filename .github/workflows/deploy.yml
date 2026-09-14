@@ -2,30 +2,32 @@ name: Deploy to Cloudflare Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-      with:
-        submodules: true
-        fetch-depth: 0
+      - uses: actions/checkout@v7
 
-    - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2
-      with:
-        hugo-version: 'latest'
-        extended: true 
+      - uses: pnpm/action-setup@v6
 
-    - name: Build
-      run: hugo --minify
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
 
-    - name: Deploy
-      uses: cloudflare/pages-action@v1
-      with:
-        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-        accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        projectName: hot-potato-archive
-        directory: public
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm test
+
+      # velite build → next build (정적 결과물: out/)
+      - run: pnpm build
+
+      # wrangler.jsonc 설정대로 out/을 Workers 정적 자산으로 배포
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
