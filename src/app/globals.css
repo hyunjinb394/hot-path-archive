@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-space: #0b0b0d;
+  --color-panel: #141417;
+  --color-edge: #26262b;
+  --color-ink: #ededef;
+  --color-dim: #9a9aa3;
+  --color-faint: #5c5c64;
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-space);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
