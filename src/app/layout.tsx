@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     default: "hot path archive",
     template: "%s · hot path archive",
   },
-  description: "그때 가장 많이 시간을 쓴 관심사를 파고든 기록",
+  description: "hyunjinb394의 개발 블로그",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
