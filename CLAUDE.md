@@ -2,13 +2,14 @@
 
 # hot path archive
 
-그때 가장 많이 시간을 쓴 관심사를 파고든 기록. 이름은 가장 자주 실행되는 코드 경로를 뜻하는 hot path에서 따왔다. Next.js App Router 정적 export + MDX(velite), Cloudflare Pages 배포.
+그때 가장 많이 시간을 쓴 관심사를 파고든 기록. 이름은 가장 자주 실행되는 코드 경로를 뜻하는 hot path에서 따왔다. Next.js App Router 정적 export + MDX(velite), Cloudflare Workers 정적 자산으로 배포(`wrangler.jsonc`).
 
 ## 명령
 
 - `pnpm dev` — velite(글 감시) + next dev (http://localhost:3100, 3000은 다른 프로젝트와 겹쳐서 피함)
 - `pnpm new` — 새 글 파일 생성 (`content/posts/<slug>/index.mdx`, `draft: true`)
 - `pnpm build` — velite build → next build (정적 `out/`)
+- `pnpm deploy` — 빌드 후 `wrangler deploy`로 수동 배포 (평소에는 main push 시 GitHub Actions가 배포)
 - `pnpm test` / `pnpm lint` / `pnpm typecheck`
 
 ## 글

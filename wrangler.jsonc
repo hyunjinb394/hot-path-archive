@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // 정적 파일만 서빙하는 Worker (Next.js 정적 export 결과물 out/)
+  "name": "hot-path-archive",
+  "compatibility_date": "2026-09-11",
+  "assets": {
+    "directory": "./out",
+    // /posts/slug → /posts/slug/ (next.config의 trailingSlash와 맞춤)
+    "html_handling": "force-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
