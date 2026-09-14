@@ -10,10 +10,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "hot potato archive",
-    template: "%s · hot potato archive",
+    default: "hot path archive",
+    template: "%s · hot path archive",
   },
-  description: "개발 및 인사이트 아카이빙 블로그",
+  description: "그때 가장 많이 시간을 쓴 관심사를 파고든 기록",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -29,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <header className="border-b border-edge">
           <nav className="mx-auto flex max-w-3xl items-center justify-between px-5 py-4 text-sm">
             <Link href="/" className="font-bold tracking-tight">
-              hot potato archive
+              hot path archive
             </Link>
           </nav>
         </header>

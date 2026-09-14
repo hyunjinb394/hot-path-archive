@@ -1,8 +1,8 @@
 @AGENTS.md
 
-# hot potato archive
+# hot path archive
 
-개발 공부, 회고, 생각을 기록하는 블로그. Next.js App Router 정적 export + MDX(velite), Cloudflare Pages 배포.
+그때 가장 많이 시간을 쓴 관심사를 파고든 기록. 이름은 가장 자주 실행되는 코드 경로를 뜻하는 hot path에서 따왔다. Next.js App Router 정적 export + MDX(velite), Cloudflare Pages 배포.
 
 ## 명령
 
