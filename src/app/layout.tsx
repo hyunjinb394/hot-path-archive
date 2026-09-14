@@ -18,8 +18,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ko" className={`${geistMono.variable} h-full antialiased`}>
-      <head>
+    // 브라우저 확장(LocatorJS 등)이 <html>/<head>에 속성을 끼워 넣어 생기는 hydration 경고만 무시한다 (한 단계 깊이만 적용)
+    <html lang="ko" className={`${geistMono.variable} h-full antialiased`} suppressHydrationWarning>
+      <head suppressHydrationWarning>
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
